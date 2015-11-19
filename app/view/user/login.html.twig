@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login | sifoni</title>
+	<link rel="stylesheet" type="text/css" href="css/login-box.css">
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+</head>
+<body>
+	
+  <div class="login-box">
+    <div class="lb-header">
+      <a href="#" class="active" id="login-box-link">Login</a>
+      <a href="#" id="signup-box-link">Sign Up</a>
+    </div>
+    <div class="social-login">
+      <a href="#">
+        <i class="fa fa-facebook fa-lg"></i>
+        Login in with facebook
+      </a>
+      <a href="#">
+        <i class="fa fa-google-plus fa-lg"></i>
+        log in with Google
+      </a>
+    </div>
+    <form class="email-login" action="{{url('login')}}" method="post">
+      <div class="u-form-group">
+        <input type="email" placeholder="Email" name="email" data-required/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Password" name="password"  data-required/>
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Log in</button>
+      </div>
+      <div class="u-form-group">
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+    </form>
+    <form class="email-signup" action="{{url('signup')}}" method="post">
+      <div class="u-form-group">
+        <input type="email" placeholder="Email" name="email"/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Password" name="password"/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Confirm Password" name="c_password"/>
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+  </div>
+  <script src="js/login.js"> </script>
+  <script>
+  // function login(o){
+  //    alert("login");
+  // }
+  //  function signup(o){
+  //    alert("signup");
+  // }
+//    $(document).on('submit', '.email-login', function(e) {
+    
+//      $.ajax({
+//         url: $(this).attr('action'),
+//         type: $(this).attr('method'),
+//         data: $(this).serialize(),
+//         success: function(html) {
+
+//         }
+//     });
+//     e.preventDefault();
+// });
+
+//   $(document).on('submit', '.email-signup', function(e) {
+    
+//      $.ajax({
+//         url: $(this).attr('action'),
+//         type: $(this).attr('method'),
+//         data: $(this).serialize(),
+//         success: function(html) {
+
+//         }
+//     });
+//     e.preventDefault();
+// });
+
+//   </script>
+</body>
+</html>

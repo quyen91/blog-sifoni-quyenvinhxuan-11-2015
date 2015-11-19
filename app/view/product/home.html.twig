@@ -1,0 +1,6 @@
+{% extends 'layout.html.twig' %}
+{% block maincontent %}
+	<h1>day la trang chu</h1>
+	
+	{{ dump(app.session.get('test')['id']) }}
+{% endblock %}

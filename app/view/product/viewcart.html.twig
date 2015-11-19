@@ -1,0 +1,82 @@
+{% extends 'layout.html.twig' %}
+{% block maincontent %}
+	<div class="cart wrap">
+		<h1>This is your Cart</h1>
+		<table  style="width:60%" id='cart-table' class="table table-striped" >
+			<tr>
+				<td> <strong>Sản phẩm</strong></td>
+				<td> <strong>Ảnh</strong></td>
+				<td><strong>Số lượng</strong></td>
+				<td> <strong>Giá</strong></td>
+				<td>  </td>
+				
+			</tr>
+			{% for c in cart %}
+			<tr>
+				<td> {{ c[0].name }} </td>
+				<td> <img src="/{{ c[0].feature_img }}" width="80" height="80" alt=""> </td>
+				{%  set t = app.session.get('cart') %}
+				{% set g = c[0].id %}
+				{% set qty = t[g] %}
+				<td> <input type="number" name="" value="{{qty}}" onkeyup="update_cart(this,{{g}});"></td>
+				<td> {{ c[0].price }} </td>
+				<td><a href="#" onclick="delete_oneCart(this, {{ c[0].id }})">  Xóa </a> </td>
+				
+
+			</tr>
+		{% endfor %}
+			<tr>
+				<td>Tổng tiền: <strong> <span id="totalcart"> {{ app.session.get('totalcart')}}</strong> </span></td>
+				<td><a href="#" onclick="delete_allCart(this)">Xóa tất cả</a></td>
+				<td><a href="#"> Cập nhật </a></td>
+				<td id="checkout">Thanh toán</td>
+			</tr>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+	
+		function update_cart(o,id){
+		var qty = $(o).val();
+		
+		$.ajax({
+			url: "{{ url('updateCart')}}",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				id: id,
+				qty: qty
+			},
+			success: function(data){
+				alert("Cập nhật số lượng mới: " + data.qty);
+				$("#totalcart").html(data.sum);
+			},
+			error: function(){
+				alert("LỖi RỒI");
+			}
+		});
+	}
+
+	
+	
+	function delete_oneCart(o,id){
+
+		// $.ajax({
+		// 	url: "{{url('delete_oneCart')}}",
+		// 	type: 'POST',
+		// 	data: {
+		// 		id : id
+		// 	}
+		// 	success: function(data){
+
+		// 	}
+
+		// });
+	}
+	function delete_allCart(o){
+		
+	}
+
+	</script>
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+{% block maincontent %}
+	
+	{% for p in product %}
+		<h1>{{p.id}}</h1>
+		<h1>{{p.name}}</h1>
+		<h1>{{p.price}}</h1>
+		<h1>{{p.description |raw}}</h1>
+		<h1>{{p.short_description}}</h1>
+	{% endfor %}
+
+{% endblock %}

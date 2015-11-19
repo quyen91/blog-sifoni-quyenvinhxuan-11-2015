@@ -1,0 +1,100 @@
+{% extends 'admin/layout.html.twig' %}
+{% block maincontent %}
+		<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">List Product</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Posts</a></li>
+    		<li><a href="#tab2">Comments</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+    				<th>Product Name</th> 
+    				<th>Category</th> 
+    				<th>Images</th> 
+					<th>Price</th>
+					<th>Quantity</th>
+    				<th>Actions</th>
+				</tr> 
+			</thead> 
+			<tbody> 
+        {% for p in product %}
+				<tr> 
+          <td> {{p.name}} </td>
+          <td> {{p.type}} </td>
+          <td> <input type="image" src="/{{p.feature_img}}" height="16" width="16"> </td>
+          <td> {{p.price}} </td>
+          <td> {{p.qty}} </td>
+    			<td>
+            <a href="{{url('updateproduct',{id: p.id})}}"><input type="image" src="/img/images/icn_edit.png" title="Edit"></a>
+           <a href="{{url('deleteproduct', {id: p.id})}}"> <input type="image" src="/img/images/icn_trash.png" title="Trash"> </a> 
+          </td> 
+				</tr> 
+      {% endfor %}
+
+			</tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th></th> 
+    				<th>Comment</th> 
+    				<th>Posted by</th> 
+    				<th>Posted On</th> 
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td>Lorem Ipsum Dolor Sit Amet</td> 
+    				<td>Mark Corrigan</td> 
+    				<td>5th April 2011</td> 
+    				<td><input type="image" src="/img/images/icn_edit.png" title="Edit"><input type="image" src="/img/images/icn_trash.png" title="Trash"></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td>Ipsum Lorem Dolor Sit Amet</td> 
+    				<td>Jeremy Usbourne</td> 
+    				<td>6th April 2011</td> 
+   				 	<td><input type="image" src="/img/images/icn_edit.png" title="Edit"><input type="image" src="/img/images/icn_trash.png" title="Trash"></td> 
+				</tr>
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td>Sit Amet Dolor Ipsum</td> 
+    				<td>Super Hans</td> 
+    				<td>10th April 2011</td> 
+    				<td><input type="image" src="/img/images/icn_edit.png" title="Edit"><input type="image" src="/img/images/icn_trash.png" title="Trash"></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td>Dolor Lorem Amet</td> 
+    				<td>Alan Johnson</td> 
+    				<td>16th April 2011</td> 
+   				 	<td><input type="image" src="/img/images/icn_edit.png" title="Edit"><input type="image" src="/img/images/icn_trash.png" title="Trash"></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td>Dolor Lorem Amet</td> 
+    				<td>Dobby</td> 
+    				<td>16th April 2011</td> 
+   				 	<td><input type="image" src="/img/images/icn_edit.png" title="Edit"><input type="image" src="/img/images/icn_trash.png" title="Trash"></td> 
+				</tr> 
+			</tbody> 
+			</table>
+
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
+
+
+{% endblock %}
