@@ -145,7 +145,12 @@ public function helloAction($name,$tuoi) {
 
 ===================
 /**
- *    tai sao dat code jquery trong document ready function thi khong thu cthi duoc
+ *    tai sao dat code jquery trong document ready function thi khong thu cthi duoc'
+ *
+ *    +> nếu không dùng cách goi id de goi ham thi chi can dat rieng le mot ham thoi con
+ *    neu su dung id de goi ham tuc la no sẽ cahyj ngay khi trinh duyet load xong nen dat trogn ready
+ *    document la can thiet
+ *    
  */
 
 ===================
@@ -153,7 +158,7 @@ public function helloAction($name,$tuoi) {
  *      trong file twig muon dung nhieu kieu dinh dang cho mot thuoc tinh
  *      {{ p.number | number_format | abs}}
  *
- *    //con be ten thi
+ *    //con be ten thi: quynh thi nguyen
  * 
  */
 
@@ -161,5 +166,33 @@ public function helloAction($name,$tuoi) {
 /**
  *      cách lấy một chuỗi được tra ra từ controller ajax
  *      phai dung return mot chuoi
+ */
+
+=======================
+/**
+ *      VẤN ĐỀ GOI FUNCTION TRONG CÙNG MỘT CONTROLLER
+ *        nếu hàm không liên quan đến rule thì không cần phải thêm action dsang sau
+ *        và dung this dể tham chiếu
+ */
+
+==========================
+/**
+ *
+ *    Cách định nghĩa rieng mot class cho mot cong viec nao do
+ *    san pham dinh duong
+ */
+
+===========================
+/**
+ *    VẤN ĐỀ VỀ GET SESSION
+ *    $this-> app['session']->get('user');
+ *    và
+ *    $this -> app['session']-> get('user', 'defaultvalue');
+ *
+ *    cái đầu tiên sẽ trả về giá trị của session hiện tại
+ *    cái thứ 2 cũng sẽ trả về giá trị của session hiện tại 
+ *    nhưng nếu session không tồn tại:
+ *      + TH1 : trả về NULL
+ *      + TH2  : trả về "default value".
  */
 

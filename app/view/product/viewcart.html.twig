@@ -18,7 +18,7 @@
 				{%  set t = app.session.get('cart') %}
 				{% set g = c[0].id %}
 				{% set qty = t[g] %}
-				<td> <input type="number" name="" value="{{qty}}" onkeyup="update_cart(this,{{g}});"></td>
+				<td> <input type="number" name="" value="{{qty | number_format | abs}}"  onchange="update_cart(this,{{g}});"></td>
 				<td> {{ c[0].price }} </td>
 				<td><a href="#" onclick="delete_oneCart(this, {{ c[0].id }})">  Xóa </a> </td>
 				
@@ -50,6 +50,8 @@
 			success: function(data){
 				alert("Cập nhật số lượng mới: " + data.qty);
 				$("#totalcart").html(data.sum);
+				;
+
 			},
 			error: function(){
 				alert("LỖi RỒI");
@@ -61,20 +63,40 @@
 	
 	function delete_oneCart(o,id){
 
-		// $.ajax({
-		// 	url: "{{url('delete_oneCart')}}",
-		// 	type: 'POST',
-		// 	data: {
-		// 		id : id
-		// 	}
-		// 	success: function(data){
+		$.ajax({
+			url: "{{url('delete_oneCart')}}",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				id : id
+			},
+			success: function(data){
+				alert('DELETE 1 ITEM');
+				$(o).closest('tr').remove();
+				// document.getElementById("cart-table").innerHTML = "";
+				$('#countcart').html(data.countcart);
+				$("#totalcart").html(data.sum);
 
-		// 	}
+			},
+			error : function(){
+				alert("SAI RỒI")
+			}
 
-		// });
+
+		});
 	}
 	function delete_allCart(o){
-		
+		$.ajax({
+
+			url: "{{ url('delete_allCart')}}",
+			type: 'POST',
+			success: function(data){
+				// document.getElementById("cart-table").innerHTML = "";
+				$("#cart-table").find("tr:gt(0):not(:last)").remove();
+				$('#countcart').html('0');
+				$("#totalcart").html('0');
+			},
+		});
 	}
 
 	</script>

@@ -116,5 +116,38 @@ table#cart-table tr td{
 	vertical-align: middle;
 }
 
+/* the li active phan trang*/
+li.current{
+	background: red;
+}
+
+/* cau hinh trang news*/
+
+.item-news{
+  float: left;
+  height:195px;
+  margin-bottom: 14px;
+  background-color:#F7F2F2;
+
+}
+.news-content {
+	height: 550px;
+}
+.news-content .item-news{
+	margin-left: 20px;
+}
+.news-content .item-news .right-item-news{
+	float:left;
+}
+.item-news .news-thumb{
+	height: 190px;
+}
+.item-news .right-item-news{
+	max-width: 600px;
+}
+.row-contain{
+	margin-top: 30px;
+}
+/* end -- cau hinh trang news*/
 
 

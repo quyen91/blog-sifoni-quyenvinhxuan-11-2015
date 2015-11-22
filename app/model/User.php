@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-
 use Sifoni\Model\Base;
+
 
 class User extends Base {
 
@@ -11,12 +11,16 @@ class User extends Base {
 
 	function getAll(){
 		//return User::select('id', 'name')->get();
+		return User::get();
 	}
 	function insertNew($postD){
-		dump($postD);
-		//se dung ajax de kiem tra xem co trong co so du lieu chua
 		return User::insertGetId($postD);
 
+	}
+	function checkLogin($email){
+		
+		return User::where('email', $email)->get();
+		
 	}
 
 } 

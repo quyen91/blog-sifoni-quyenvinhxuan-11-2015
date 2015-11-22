@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block maincontent %}
+	<div class="main-detail wrap">
+		<h1>{{ news[0].name}}</h1>
+	<h6>Author: <small>{{ news[0].author}}</small></h6>
+	<h6>Date post: <small> {{ news[0].created_at}}</small></h6>
+	<h6>Tag: 
+	   		
+	    	<a class="tag" href="">sd</a>
+	  	
+	</h6>
+	<br><br><br>
+	<p>{{ news[0].content}}</p>
+
+
+	<div class="get_comments">
+		<h3><small>Leave Comment</small></h3>
+
+
+		<form id="cm" action="" method="post">
+		    <input type="hidden" name="id" class='hidden-id' value="postID']?>">
+			<label>Name</label>
+			<input type="text" name="name" value=""> <br>
+			<label> Mail</label>
+			<input type="text" name="email" value=""> <br>
+			<label> Comment</label>
+			<textarea name="comment" rows="2" cols="100"></textarea> <br>
+			<!-- <input id="but-comment" type="submit"  value="Đăng"> -->
+			<button id ="submit" >Đăng</button>
+		</form>
+	</div>
+
+
+	<h3 ><span class="qty-cm">6 </span>Comment</h3> <hr/>
+	<div class="display_comments">
+	
+	
+	<div class="item-cm">
+		<img src="styles/img/news/download.jpg" alt="">
+		<h4 style="color: red" class="author-cm"> author </h4>
+		<p class="content-cm">content </p>
+		<p><i>time</i> </p> <hr/>
+	</div>
+		
+	
+	</div>
+	</div>
+	
+{% endblock %}

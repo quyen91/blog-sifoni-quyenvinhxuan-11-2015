@@ -22,6 +22,9 @@ class Product extends Base {
 		return Product::where('id',$id)->get();
 		
 	}
+	function getPaginate($start,$limit){
+		return Product::skip($start)->take($limit)->get();
+	}
 	function getByCategory($cate){
 		return Product::where('type',$cate)->get();
 	}

@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block maincontent %}
+<div class="contain wrap">
+<div class="news-content">
+	{% for n in news %}
+  <div class="row span12">
+   <div class="item-news span12">
+     <img class="news-thumb span4" href="{{url('newsdetail',{id: n.id})}}" src="/{{ n.img}}"   width="180" height="100"  alt="" >
+       <div class="right-item-news span8">
+          <div class="title-item">
+         <a href=""><h5> {{ n.name }} </h5></a>
+         <p><small> {{ n.created_at}}</small></p>
+         </div>
+         <div class="new-slogan span8">
+           <p> {{ n.description }} <br><a href="{{url('newsdetail',{id: n.id})}}">Chi tiết[...]</a></p>
+         </div>..
+      </div>
+       </div>
+   </div>
+   {% endfor %}
+
+
+
+
+
+{% endblock %}

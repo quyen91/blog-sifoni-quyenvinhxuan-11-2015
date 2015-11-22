@@ -33,18 +33,29 @@ Class CartController extends MainController{
 		return $t;
 
 	}
+	private function totalCart(){
+		$sum = 0;
+		$getSS = $this->app['session']->get('cart');
+			foreach($getSS as $id => $qty) {
+			$p = Product::getById($id);
+			$sum = $sum +  $p[0]['price']*$qty;
+		}
+		return $sum;
+		
+		
+	}
 	public function viewCartAction(){
 		$data = array();
 		$temp = array();
 		$sum = 0;
 		$getSS = $this->app['session']->get('cart');
 		
-
+		if($getSS != NULL){
 		foreach($getSS as $id => $qty) {
 			$p = Product::getById($id);
 			$sum = $sum +  $p[0]['price']*$qty;
 			array_push($temp, $p);
-		}
+		}}
 		// tinh tong tien
 		$data['cart'] = $temp;
 		$this->app['session']->set('totalcart', $sum);
@@ -54,27 +65,42 @@ Class CartController extends MainController{
 	}
 	public function updateCartAction(){
   	
-header('Content-Type: application/json');
+		header('Content-Type: application/json');
 		$t = $this->getPostData();
 		$getSS = $this->app['session']->get('cart');
 		$id = $t['id']; 
-		$getSS[$id]=$t['qty'];
+		$getSS[$id]= abs($t['qty']);
 		$this->app['session']->set('cart',$getSS);
-		
+
+		// $sum = $this->totalCart();
+		// var_dump($sum);
+
 		$sum = 0;
 		$getSS = $this->app['session']->get('cart');
 		foreach($getSS as $id => $qty) {
 			$p = Product::getById($id);
 			$sum = $sum +  $p[0]['price']*$qty;
 		}
-		return json_encode(array('qty'=> $t['qty'], 'sum'=> $sum));
+		return json_encode(array('qty'=> abs($t['qty']), 'sum'=> $sum));
 
 	}
 	public function delete_oneCartAction(){
 
+		header('Content-Type: application/json');
+		$t = $this->getPostData();
+		$getSS = $this->app['session']->get('cart');
+		unset($getSS[$t['id']]);
+		$this->app['session']->set('cart',$getSS);
+
+		$sum = $this->totalCart();
+	
+		return json_encode(array('sum' => $sum, 'countcart' => count($this->app['session']->get('cart'))));
+
 	}
 	public function delete_allCartAction(){
-
+		
+		$this->app['session']->remove('cart');
+		return "ok";
 	}
 }
 

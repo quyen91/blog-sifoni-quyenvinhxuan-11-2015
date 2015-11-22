@@ -11,7 +11,7 @@
 	</div>
 	<div class="main-product">
 		{# {{ dump(newproduct)}} #}
-			<ul class="list-product">
+			<ul class="list-product" id="data-out">
 				{% for p in newproduct %}
 			<li>
 				<div class="product-item">
@@ -23,7 +23,6 @@
 						<p>Giá: {{p.price}} </p>
 						<p>Tình trạng: {{p.qty}} </p>
 					</div>
-					{# <span class="BTN"><a id="addtocart" onclick="addcart()" href="#">AddToCart</a> </span> #}
 					<span class="BTN"> <a href="#" onclick="addcart({{p.id}}) "> AddToCart</a></span>
 						<br> 
 					<span class="BTN"><a href="{{ url('detail_r',{'id':p.id}) }}">Chi tiet</a></span>
@@ -33,24 +32,15 @@
 		{% endfor %}
 		</ul>
 		{# phan trang tai day #}
-		{% include 'block/navigation.html.twig' %}
+		<div id="pagination">
+			
+		</div>
+		{# {% include 'block/navigation.html.twig' %} #}
 	</div> 
 </div>
 
 <script  type="text/javascript">
 
-	
-  // jQuery(document).ready(function() {
-
-  // 		// function addcart(){
-  // 		// 	alert("quyen");
-  // 		// };
-  		
-  		
-   
-  //  });
-
-   
 function addcart(id){
 	var path = "{{ url('addcart_route') }}";
   //	alert(path);
@@ -66,7 +56,7 @@ function addcart(id){
 
   		success: function(data){
   			alert(data);
-  			$('#carttotal').html(data);
+  			$('#countcart').html(data);
   		}, //vi cai dau , nay ma thuc suot dem
   		error: function(){
   			alert("error");
@@ -78,7 +68,42 @@ function addcart(id){
  };
 
 
+/**
+ *  this function for ajax pagination
+ * 
+ */
+ // function demo(page){
 
+ // 	if(page==null){ page = 1}
+ // 		// alert(page);
+ // 	var id=page;
+ // 	$.ajax({
+
+ // 		url: "{{ url('paginate')}}",
+ // 		type: 'POST',
+ // 		dataType: 'json',
+ // 		data: {
+ // 			id: id
+ // 		},
+ // 		success: function(data){
+ // 			//alert(data.html);
+ // 			$("#pagination").html(data.html);
+ // 			$('#data-out').html(data.data);
+ 			
+ // 		},
+ // 		error: function(){
+ // 			alert("error");
+ // 		}
+
+ // 	});
+ // }
+
+  $(document).ready(function(){
+
+  	demo();
+
+  });
+ 
 
 
 

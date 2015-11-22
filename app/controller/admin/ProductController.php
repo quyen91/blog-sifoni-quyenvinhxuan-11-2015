@@ -4,7 +4,7 @@ use Sifoni\Controller\Base;
 use App\Model\Product;
 
 
-class ProductController extends Base {
+class ProductController extends AuthorController {
 
 	public function addAction(){
 

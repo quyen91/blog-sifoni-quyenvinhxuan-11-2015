@@ -18,14 +18,14 @@
 					<ul>
 					{% if app.session.has('logged')%}
 						
-							<li> <a href="" style="color:#ff0000"> {{app.session.get('logged')}} </a></li>
+							<li> <a href="{{url('loadlogin')}}" style="color:#ff0000"> {{app.session.get('logged')}} </a></li>
 							<li><a href="{{ url('loggout') }}"> Loggout </a></li>
 
 					{% else %}
 						<li> <a href="{{url('loadlogin')}}">Login | Signup</a></li>
 					{% endif %}
 
-					<li> <a href="{{url('viewCart')}}"> Cart </a> ( <span id="carttotal"> 
+					<li> <a href="{{url('viewCart')}}"> Cart </a> ( <span id="countcart"> 
 						{% if app.session.get('cart') == null %} {{0}}{% else %}
 							{{ app.session.get('cart') | length }}
 						 {% endif %}
@@ -40,7 +40,7 @@
 					<ul>
 						<li><a href="{{url('home')}}" title="">Home</a></li>
 						<li><a href="{{url('mainpage_route')}}" title="">Sản phẩm</a></li>
-						<li><a href="#" title="">Tin tức</a></li>
+						<li><a href="{{url('newspage')}}" title="">Tin tức</a></li>
 						<li><a href="#" title="">Liên hệ</a></li>
 					</ul>
 				</nav>

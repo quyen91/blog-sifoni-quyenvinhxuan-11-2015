@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>login | sifoni</title>
-	<link rel="stylesheet" type="text/css" href="css/login-box.css">
+	<link rel="stylesheet" type="text/css" href="../../css/login-box.css">
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 </head>
 <body>
@@ -11,9 +11,9 @@
   <div class="login-box">
     <div class="lb-header">
       <a href="#" class="active" id="login-box-link">Login</a>
-      <a href="#" id="signup-box-link">Sign Up</a>
+     {#  <a href="#" id="signup-box-link">Sign Up</a> #}
     </div>
-    <div class="social-login">
+   {#  <div class="social-login">
       <a href="#">
         <i class="fa fa-facebook fa-lg"></i>
         Login in with facebook
@@ -22,8 +22,8 @@
         <i class="fa fa-google-plus fa-lg"></i>
         log in with Google
       </a>
-    </div>
-    <form class="email-login" action="{{url('login')}}" method="post">
+    </div> #}
+    <form class="email-login" action="{{url('admin_login')}}" method="post">
       <div class="u-form-group">
         <input type="email" placeholder="Email" name="email" />
       </div>
@@ -36,14 +36,14 @@
       <div class="u-form-group">
         <a href="#" class="forgot-password">Forgot password?</a>
         <p style="color: red"> 
-          {% if error_login is defined %}
-          {{ error_login }}
+          {% if error is defined %}
+          {{ error}}
 
         {% endif %}
 
         </p>
       </div>
-    </form>
+    {# </form>
     <form class="email-signup" action="{{url('signup')}}" method="post">
       <div class="u-form-group">
         <input type="email" placeholder="Email" name="email"/>
@@ -57,7 +57,7 @@
       <div class="u-form-group">
         <button type="submit">Sign Up</button>
       </div>
-    </form>
+    </form> #}
   </div>
   <script src="js/login.js"> </script>
   <script>
