@@ -11,7 +11,14 @@ class NewsController extends AuthorController {
 		return $this->render('admin/viewnews.html.twig',$data);
 	}
 	public function addAction(){
-		return $this->render('admin/addproduct.html.twig');
+
+		if($this->getPostData()){
+			$post = $this->getPostData();
+			News::insertNews($post);
+			News::add_tag($post['id'],$post['tag']);
+			return $this->redirect('viewnews');
+		}
+		return $this->render('admin/addnews.html.twig');
 	
 	}
 	public function updateAction($id){
