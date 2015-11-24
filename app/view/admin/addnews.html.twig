@@ -3,40 +3,40 @@
 	<script src="/plugin/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<article class="module width_full">
 		<form action="" method="post" enctype="multipart/form-data">
-			<header><h3>UPDATE POST</h3></header>
+			<header><h3>NEWW POST</h3></header>
 				<div class="module_content">
 						
 						<fieldset>
 							<label>Tên bài viết</label>
-							<input type="text" name='name' value="">
+							<input type="text" name='name'>
 						</fieldset>
 						<fieldset>
 							<label>Mô tả</label>
-							<textarea class="not-expand" rows="6" name="description" > </textarea>
+							<textarea class="not-expand" rows="6" name="description" ></textarea>
 						</fieldset>
 						<fieldset>
 							<label>Nội dung</label>
 							<div class="ckt">	
-								<textarea id="full-descript"  rows="10" name='description'>  </textarea>
+								<textarea id="full-descript"  rows="10" name='description'> </textarea>
 							<script type="text/javascript"> CKEDITOR.replace('full-descript'); </script>
 							</div>
 							
 						</fieldset>
 						<fieldset style="width:48%; float:left; margin-right: 3%;"> <!-- to make two field float next to one another, adjust values accordingly -->
 							<label> Tag</label>
-							<input type="text" style="width:92%;" name='tag' value="">
+							<input type="text" style="width:92%;" name='tag'>
 							
 						</fieldset>
 						<fieldset style="width:48%; float:left;"> <!-- to make two field float next to one another, adjust values accordingly -->
 							<label>Author</label>
-							<input type="text" style="width:92%;" name='author' value="">
+							<input type="text" style="width:92%;" name='author'>
 						</fieldset><div class="clear"></div>
 
 
 						<fieldset style="width:100%; float:left; margin-right: 3%;"> <!-- to make two field float next to one another, adjust values accordingly -->
 							<label>Ảnh</label>
-							<input type="file" name='image' style="width:92%;" onchange="loadFile(event)" src="">
-							 <img accept="image/*" id="preview-img" height="300px" src="">
+							<input type="file" name='image' style="width:92%;" onchange="loadFile(event)">
+							 <img accept="image/*" id="preview-img" height="300px">
 							<script>
 							 var loadFile = function(event) {
 						    	 var reader = new FileReader();
@@ -72,6 +72,6 @@
 		</article><!-- end of post new article -->
 
 
-		<script type="text/javascript"> CKEDITOR.replace('full-descript'); </script>
+	
 
 {% endblock %}

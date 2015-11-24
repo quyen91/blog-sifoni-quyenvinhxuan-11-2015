@@ -195,4 +195,34 @@ public function helloAction($name,$tuoi) {
  *      + TH1 : trả về NULL
  *      + TH2  : trả về "default value".
  */
+============================
+MAU UA THICH 0d004c
 
+=============================
+/**
+ *      co the dung ngay ham xoa database truc tiep trong controller  khong
+ *      vidu:  DB::table('user')->delete();
+ */
+
+============================
+/**
+ *    Cach truyen url vao action trong view co an toan khong
+ */
+===========================
+/**
+ *   return false ajax trang load trang
+ *   nen dung preventDefault vi trong dien thoai no se hien thi false neu tra ve false
+ */
+=============================
+/**
+ *    Khi nao nen su dung pimple
+ */
+=============================
+/**
+ *      phan trang:
+ *
+ *      muc tieu la lay du lieu theo so trang click va hien thi
+ *      
+ *      $['data'] = $this->paginate($id);
+ *      
+ */

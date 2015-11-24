@@ -21,6 +21,8 @@ return array(
 
         '/news.html' => 'NewsController:news_page:newspage',
         '/newsdetail/{id}' => 'NewsController:news_detail:newsdetail',
+        '/addcomment' => 'NewsController:getComment:getComment',
+        '/page/{id}' => 'NewsController:pagination:paginate_post'
 
 
 

@@ -13,15 +13,22 @@
          <p><small> {{ n.created_at}}</small></p>
          </div>
          <div class="new-slogan span8">
-           <p> {{ n.description }} <br><a href="{{url('newsdetail',{id: n.id})}}">Chi tiết[...]</a></p>
+           <p> {{ n.description | raw }} <br><a href="{{url('newsdetail',{id: n.id})}}">Chi tiết[...]</a></p>
          </div>..
       </div>
        </div>
    </div>
    {% endfor %}
+ </div>
+ <div id="paginate">
+    {{html | raw}}
+ </div>
 
 
+<script>
+  
 
+</script>
 
 
 {% endblock %}

@@ -25,11 +25,10 @@ class MainController extends Base {
 			$totalpage = 1;
 		}
 
-		
 		$start = ($page -1) * $per_page;   //tinh so dong bat dau trong co so du lieu tu page nhap vao
 		$end_page = $totalpage - 1;
 		$productpage  = Product::getPaginate($start,$per_page);
-		$data = 
+		
 		// $current = ($start/$per_page) + 1;
 		// $next = $start + $per_page;
 		// $previous = $start - $per_page;

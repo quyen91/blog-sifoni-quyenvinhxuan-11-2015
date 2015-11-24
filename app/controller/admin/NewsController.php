@@ -1,7 +1,10 @@
 <?php 
 namespace App\Controller\admin;
+
 use Sifoni\Controller\Base;
 use App\Model\News;
+use Sifoni\Model\DB;
+
 
 class NewsController extends AuthorController {
 
@@ -13,9 +16,16 @@ class NewsController extends AuthorController {
 	public function addAction(){
 
 		if($this->getPostData()){
-			$post = $this->getPostData();
-			News::insertNews($post);
-			News::add_tag($post['id'],$post['tag']);
+			$news = $this->getPostData();
+			$news['img'] = "img/news/".$_FILES['image']['name'];
+			$path = 'img/news/'.$_FILES['image']['name']; // Đường dẫn chưa file upload
+			move_uploaded_file($_FILES['image']['tmp_name'], $path);
+			//end img upload
+			$news['slug'] = $this->app['slugify']->slugify($news['name']);
+			
+			
+			$postID = News::insertNews($news);
+			News::add_tag($postID,$news['tag']);
 			return $this->redirect('viewnews');
 		}
 		return $this->render('admin/addnews.html.twig');
@@ -30,6 +40,11 @@ class NewsController extends AuthorController {
 			move_uploaded_file($_FILES['image']['tmp_name'], $path);
 			//end img upload
 			$news['slug'] = $this->app['slugify']->slugify($news['name']);
+
+			//xoa gia tri hien tai cua bang post_tag
+			News::deletePostTag($id);
+			News::add_tag($id,$news['tag']);
+
 		   News::updateNews($id, $news);
 		   return $this->redirect('viewnews');
 		}

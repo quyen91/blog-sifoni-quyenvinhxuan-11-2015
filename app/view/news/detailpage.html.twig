@@ -6,9 +6,9 @@
 	<h6>Author: <small>{{ news[0].author}}</small></h6>
 	<h6>Date post: <small> {{ news[0].created_at}}</small></h6>
 	<h6>Tag: 
-	   		
-	    	<a class="tag" href="">sd</a>
-	  	
+	   		{% for t in tag %}
+	    	<a class="tag" href=""> {{ t.name }} </a>
+	  		{% endfor %}
 	</h6>
 	<br><br><br>
 	<p>{{ news[0].content}}</p>
@@ -19,7 +19,7 @@
 
 
 		<form id="cm" action="" method="post">
-		    <input type="hidden" name="id" class='hidden-id' value="postID']?>">
+		    <input type="hidden" name="id" class='hidden-id' value="{{news[0].id}}">
 			<label>Name</label>
 			<input type="text" name="name" value=""> <br>
 			<label> Mail</label>
@@ -27,24 +27,49 @@
 			<label> Comment</label>
 			<textarea name="comment" rows="2" cols="100"></textarea> <br>
 			<!-- <input id="but-comment" type="submit"  value="Đăng"> -->
-			<button id ="submit" >Đăng</button>
+			<button type="submit" >Đăng</button>
 		</form>
 	</div>
 
 
-	<h3 ><span class="qty-cm">6 </span>Comment</h3> <hr/>
+	
 	<div class="display_comments">
-	
-	
-	<div class="item-cm">
-		<img src="styles/img/news/download.jpg" alt="">
-		<h4 style="color: red" class="author-cm"> author </h4>
-		<p class="content-cm">content </p>
-		<p><i>time</i> </p> <hr/>
+		<h3 ><span class="qty-cm"> {{comment| length}} </span>Comment</h3> <hr/>
+		{% for c in comment %}
+		 
+		<div class="item-cm">
+			<img src="styles/img/news/download.jpg" alt="">
+			<h4 style="color: red" class="author-cm"> {{ c.from_user}} </h4>
+			<p class="content-cm">{{ c.body }} </p>
+			<p><i>{{c.created_at}}</i> </p> <hr/>
+		</div>
+		{% endfor %}
+		<script>
+			$('#cm').submit(function(){
+				$.ajax({
+			        url: '{{url("getComment")}}',
+			        type: 'post',
+			        data: $(this).serialize(),
+			        dataType: 'json',
+			        success: function(data) {
+
+			        		var bien = '<div class="item-cm"><img src="styles/img/news/download.jpg" alt="">' + data.name
+								+ data.comment  + data.time + '</div>';
+								$('.display_comments').prepend(bien);
+
+								$('.qty-cm').html(data.qty_comment + " ");
+
+			        },
+			        error: function(){
+			        	alert('e');
+			        }
+			    });
+			     return false;
+			    //e.preventDefault();
+			});
+
+		</script>
 	</div>
-		
-	
 	</div>
-	</div>
-	
+
 {% endblock %}

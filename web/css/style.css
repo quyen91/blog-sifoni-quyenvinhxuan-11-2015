@@ -94,6 +94,7 @@ ul.list-product li{
 	display: inline-block;
 	margin-left: 10px; 	
 	margin-top: 10px;
+	height: 600px;
 }
 
 span.BTN a{
@@ -125,13 +126,18 @@ li.current{
 
 .item-news{
   float: left;
+  
   height:195px;
   margin-bottom: 14px;
   background-color:#F7F2F2;
 
 }
 .news-content {
-	height: 550px;
+	height: 700px;
+
+}
+.tag-display{
+	float: right;
 }
 .news-content .item-news{
 	margin-left: 20px;
@@ -150,4 +156,26 @@ li.current{
 }
 /* end -- cau hinh trang news*/
 
-
+/*rating star*/
+.rate_widget {
+    border:     1px solid #CCC;
+    overflow:   visible;
+    padding:    10px;
+    position:   relative;
+    width:      180px;
+    height:     32px;
+}
+.ratings_stars {
+    background: url('../img/star.ico') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
+.ratings_vote {
+    background: url('../img/star.png' no-repeat;
+}
+.ratings_over {
+    background: url('../img/star.png') no-repeat;
+}
+/*end rating star*/
