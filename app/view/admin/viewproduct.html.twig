@@ -30,8 +30,13 @@
           <td> {{p.price}} </td>
           <td> {{p.qty}} </td>
     			<td>
-            <a href="{{url('updateproduct',{id: p.id})}}"><input type="image" src="/img/images/icn_edit.png" title="Edit"></a>
-           <a href="{{url('deleteproduct', {id: p.id})}}"> <input type="image" src="/img/images/icn_trash.png" title="Trash"> </a> 
+                <a href="{{url('updateproduct', {id: p.id })}}"><button type="submit"> <img src="/img/images/icn_edit.png" alt=""></button></a>
+
+            <form action="{{url('deleteproduct')}}" method="post">
+                <input type="hidden" name="id" value="{{p.id}}">
+                <input type="hidden" name="token" value="{{token}}">
+                <button type="submit"  onclick='return confirm("Bạn muốn xóa sản phẩm này?");'> <img src="/img/images/icn_trash.png" alt=""></button>
+            </form> 
           </td> 
 				</tr> 
       {% endfor %}

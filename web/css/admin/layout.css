@@ -10,6 +10,7 @@
 .not-expand{
 	resize: none;
 }
+
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
     display: block;  
 } 

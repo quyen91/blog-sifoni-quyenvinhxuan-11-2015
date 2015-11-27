@@ -94,7 +94,7 @@ ul.list-product li{
 	display: inline-block;
 	margin-left: 10px; 	
 	margin-top: 10px;
-	height: 600px;
+	height: 400px;
 }
 
 span.BTN a{
@@ -117,10 +117,6 @@ table#cart-table tr td{
 	vertical-align: middle;
 }
 
-/* the li active phan trang*/
-li.current{
-	background: red;
-}
 
 /* cau hinh trang news*/
 
@@ -166,16 +162,78 @@ li.current{
     height:     32px;
 }
 .ratings_stars {
-    background: url('../img/star.ico') no-repeat;
+    background: url('../img/2.png') no-repeat;
     float:      left;
     height:     28px;
     padding:    2px;
     width:      32px;
 }
 .ratings_vote {
-    background: url('../img/star.png' no-repeat;
+    background: url('../img/star.png') no-repeat;
 }
 .ratings_over {
     background: url('../img/star.png') no-repeat;
 }
 /*end rating star*/
+
+/* style for tab test*/
+.tab-wrapper{
+    width: 500px;
+    margin: 50px auto;
+    border: solid 1px #acacac;
+   
+}
+.tab-wrapper ul{
+    overflow: hidden;
+    background: #aee655;
+    margin: 0px;
+    padding: 0px;
+}
+.tab-wrapper ul li{
+    float: left;
+    list-style: none;
+    padding: 10px 20px;
+    background: #348ec9;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.tab-wrapper ul li.active{
+    background: #Fff;
+}
+.tab-wrapper ul li.active a{
+    color: blue;
+}
+.tab-wrapper ul li a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.tab-content{
+    padding: 20px;
+}
+.tab-item{
+    display: none;
+}
+/*----------------------------*/
+
+/*style for paginating*/
+.pagi ul{
+	list-style: none;
+}
+.pagi ul li{
+	display: block-inline;
+	border: 1px solid grey;
+	float:left;
+	padding: 10px;
+	margin-right: 5px;
+}
+.pagi ul li.current{
+	background: green;
+}
+.pagi ul li.current a{
+	color: white;
+}
+
+
+/*---------------------*/

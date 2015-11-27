@@ -43,6 +43,9 @@ class Product extends Base {
 		$t = Product::find($id)->update($product);
 		return $t;
 	}
+	function deleteProduct($id){
+		return Product::find($id)->delete();
+	}
 
 
 } 

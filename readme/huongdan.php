@@ -17,16 +17,22 @@ public function helloAction($name,$tuoi) {
  /**Lam sao truyen get va post
 
   	+ mac dinh ban moi la get khi goi
- 	+ chinh firefox network de xem che do post hay get
-	+ cách generate link 
+  	+ chinh firefox network de xem che do post hay get
+	  + cách generate link 
 	{{ url('detail_r',{'id':p.id}) }} 
 
  */
  
 
- /*Lam sao goi toi link bang href*/
+ /*Lam sao goi toi link bang href
+      + Dùng route
+      + Dùng /url  cái này ở trong route
+
+ */
  
- /*Lam sao truyen nhieu bien vo session*/
+ /*Lam sao truyen nhieu bien vo session
+        set một mảng cho nó
+ */
 
 
  /*lam sao tao comment nhu the nay
@@ -40,7 +46,7 @@ public function helloAction($name,$tuoi) {
   vo file    E:\PROGRAM\XAMP\apache\conf\extra tim file Vhost va chinh su..bo phan comment di
 
   /* Ham isPostRequest duoc viet san hay o dau co*/
-  do minh viet
+ 
 
   /**
    * 	van de update_at va created_at
@@ -50,18 +56,16 @@ public function helloAction($name,$tuoi) {
   
   
   /**
-   * 	van de alias la gi
+   * 	van de alias la gi:  ví dụ select* from Customer as Cu join Boss as Bo.. as là viết tắt của alias
    *   slug
    *   la bien ten bai viet thanh duong dan tren thanh address
    * 	
    */
   
   /**
-   * 	vấn đề tạo host ảo
-   */
-  
-  /**
    * 	vấn đề redirect
+   *   khác với render vì nó không có dữ liệu truyền vào
+   *   ???? khi nào dùng route, khi nào redirect
    * 	redirect có sẵn chỉ việc gọi đến route nào đó
    */
   
@@ -166,6 +170,7 @@ public function helloAction($name,$tuoi) {
 /**
  *      cách lấy một chuỗi được tra ra từ controller ajax
  *      phai dung return mot chuoi
+ *      nhất đinh phải trả về false nếu ajax đang url đến route nào đó
  */
 
 =======================
@@ -224,5 +229,49 @@ MAU UA THICH 0d004c
  *      muc tieu la lay du lieu theo so trang click va hien thi
  *      
  *      $['data'] = $this->paginate($id);
+ *
+ *      cần viết một class chung cho tat cả, với biến : 
+ *       + bảng data
+ *    
+ *      
+ */
+==============================
+/**
+ *    một vài điều cần tìm hiểu về php
+ *     + name convention
+ *     + design patern
+ *     + xml file
+ *     + rss feed
+ *     + elastic search
+ *     + dung co so du lieu eloquent kieu khong can tao lai so so du lieu
+ *     + SU DUNG MYSQL workbench
+ *     + tao csdl lon cho trang web
+ *     + xay dung he thong capacha voi checkout system
+ *     + 
+ */
+
+============================
+/**
+ *     tao mot danh sach cac huong dan len github
+ *     muon su dung ham document.ready.function phải load thư viện jquery
+ */
+============================
+/**
+ *    van de neu truyen link href = "/page/id" thi moi lan genarate mot page moi no se them VD: /product/page/id
+ *    nen se loi khi truy cap tu trang khac
+ * 
+ */
+==========================
+/**
+ *    van de star rating: 
+ *
+ *    table rating: {
+ *    id:
+ *    article:
+ *    rate:
+ *    
+ *    }
+ *    group by id của article sau do lay trung binh star rating
+ *    
  *      
  */

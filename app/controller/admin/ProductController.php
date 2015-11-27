@@ -32,7 +32,11 @@ class ProductController extends AuthorController {
 	
 	}
 	public function viewAction(){
+
 		$data = array();
+		$token = md5(uniqid(rand(), TRUE));
+		$data['token'] = $token;
+		$this->app['session']->set('token',$token);
 		$data['product'] = Product::getAll();
 		return $this->render('admin/viewproduct.html.twig',$data);
 	}
@@ -62,7 +66,15 @@ class ProductController extends AuthorController {
 		$data['product'] = Product::getById($id);
 		return $this->render('admin/updateproduct.html.twig',$data);
 	}
-	public function deleteAction($id){
-		
+	public function deleteAction(){
+		if($this->getPostData()){
+			$post = $this->getPostData();
+			if($post['token']== $this->app['session']->get('token')){
+				 Product::deleteProduct($post['id']);
+				 $this->app['session']->remove('token');
+				return $this->redirect('viewproduct');
+			}
+		}
+		return false;
 	}
 }

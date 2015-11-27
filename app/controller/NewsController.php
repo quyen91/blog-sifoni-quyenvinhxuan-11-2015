@@ -59,13 +59,14 @@ class NewsController extends MainController{
 		$start = ($id -1) * $per_page;   //tinh so dong bat dau trong co so du lieu tu page nhap vao
 		$end_page = $totalpage - 1;
 
-		$html = "";
-		for($i= 1; $i<=$end_page;$i++){
+		$html = "<div class='pagi'><ul>";
+		for($i= 1; $i<=$totalpage;$i++){
 			if($id == $i){
 				$html .= "<li class='current'><a href='/page/$i'> $i </a></li>";
 			}
 			else $html .= "<li ><a href='/page/$i'> $i </a></li>";
 		}
+		$html.='</ul></div>';
 		
 
 		$data['news'] = News::getPaginate($start,$per_page);

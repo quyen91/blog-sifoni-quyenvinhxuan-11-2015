@@ -10,10 +10,10 @@ class HomeController extends MainController {
         $cart['name'] = '4';
         $this->app['session']->set('test', $cart);
        // dump($this->app['session']->get('test')['id']);
-       dump($this->app['session']->get('logged'));
+     //  dump($this->app['session']->get('logged'));
 
        $t = $this->app['session']->get('logged', 'This is default value');
-       dump($t);
+     //  dump($t);
         
         return $this->render('product/home.html.twig', $data);
     }

@@ -1,6 +1,56 @@
 {% extends 'layout.html.twig' %}
+
 {% block maincontent %}
-	<h1>day la trang chu</h1>
+	<div class="test-tab wrap">
+		<h1>I am test for tab</h1>
+		<div class="tab-wrapper">
+		    <ul class="tab">
+		        <li>
+		            <a href="#tab-main-info">Thông tin chính</a>
+		        </li>
+		        <li>
+		            <a href="#tab-image">Hình ảnh</a>
+		        </li>
+		        <li>
+		            <a href="#tab-seo">SEO</a>
+		        </li>
+		    </ul>
+		    <div class="tab-content">
+		        <div class="tab-item" id="tab-main-info">
+		            Tab thông tin chinh
+		        </div>
+		        <div class="tab-item" id="tab-image">
+		            Tab hình ảnh
+		        </div>
+		        <div class="tab-item" id="tab-seo">
+		            Tab SEO
+		        </div>
+		    </div>
+		</div>
+	</div>
 	
-	{{ dump(app.session.get('test')['id']) }}
+	
+	<script>
+	$(document).ready(function(){
+
+		function activeTab(o){
+		$('.tab-wrapper ul li').removeClass('active');
+		$(o).addClass('active');
+		var id = $(o).find('a').attr('href');
+		$('.tab-item').hide();
+		$(id).show();
+
+	}
+
+			$('.tab li').click(function(event) {
+				/* Act on the event */
+				activeTab(this);
+				return false;
+			});
+			activeTab($('.tab li:first-child'));
+	});
+	
+
+
+	</script>
 {% endblock %}

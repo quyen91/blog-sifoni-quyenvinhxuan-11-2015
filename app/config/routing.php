@@ -35,7 +35,7 @@ return array(
         '/addproduct' => 'admin\ProductController:add:addproduct',
         '/viewproduct.html' => 'admin\ProductController:view:viewproduct',
         '/updateproduct.html/{id}' => 'admin\ProductController:update:updateproduct',
-        '/deleteproduct/{id}' => 'admin\ProductController:delete:deleteproduct',
+        '/deleteproduct' => 'admin\ProductController:delete:deleteproduct',
 
         '/addnews' => 'admin\NewsController:add:addNews',
         '/viewnews' => 'admin\NewsController:view:viewnews',

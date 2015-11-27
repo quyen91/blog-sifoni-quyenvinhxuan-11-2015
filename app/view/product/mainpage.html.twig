@@ -18,15 +18,16 @@
 					<div class="img-feature">
 						<img src="/{{p.feature_img}}" width="200" height="250" alt="">
 					</div>
-					<div class="desc">
+					<div class="rate">
 						<div id="r1" class="rate_widget">
 							<div class="star_1 ratings_stars"></div>
 							<div class="star_2 ratings_stars"></div>
 							<div class="star_3 ratings_stars"></div>
 							<div class="star_4 ratings_stars"></div>
 							<div class="star_5 ratings_stars"></div>
-							<div class="total_votes">vote data</div>
 						</div>
+					</div>
+					<div class="desc">
 						<p>Name: {{p.name}} </p>
 						<p>Giá: {{p.price}} </p>
 						<p>Tình trạng: {{p.qty}} </p>
@@ -40,9 +41,7 @@
 		{% endfor %}
 		</ul>
 		{# phan trang tai day #}
-		<div id="pagination">
-			
-		</div>
+		
 		{# {% include 'block/navigation.html.twig' %} #}
 	</div> 
 </div>
